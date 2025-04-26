@@ -3,8 +3,8 @@ import joblib
 import pandas as pd
 
 # Load the trained Decision Tree model and scaler
-model = joblib.load(r'C:\Users\WINDOWS_2024\OneDrive\Salha2024\Desktop1\Advanced business data analysis_second semester_2025\Final Project\streamlit.app\DecisionTree_churn_model.pkl')
-scaler = joblib.load(r'C:\Users\WINDOWS_2024\OneDrive\Salha2024\Desktop1\Advanced business data analysis_second semester_2025\Final Project\streamlit.app\scaler.pkl')
+model = joblib.load('DecisionTree_churn_model.pkl')
+scaler = joblib.load('scaler.pkl')
 
 # Set page config
 st.set_page_config(
