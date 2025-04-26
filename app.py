@@ -2,11 +2,9 @@ import streamlit as st
 import joblib
 import pandas as pd
 
-# Load the trained Decision Tree model and scaler
 model = joblib.load('DecisionTree_churn_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
-# Set Streamlit page config
 st.set_page_config(
     page_title="Customer Churn Prediction",
     page_icon="🔮",
@@ -14,19 +12,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom page style (background color and fonts)
 st.markdown(
     """
     <style>
     body {
-        background-color: #E8F5E9; /* Light mint green */
-        color: #333333;
+        background-color: #f5f7f4;
+        color: #2E2E2E;
     }
     .stApp {
-        background-color: #E8F5E9;
+        background-color: #f5f7f4;
     }
     .stButton>button {
-        background-color: #66BB6A; /* Calm green button */
+        background-color: #3b5534;
         color: white;
         font-size: 16px;
         padding: 10px 24px;
@@ -38,8 +35,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Title and description
-st.markdown("<h2 style='text-align: center; color: #2E7D32;'>🌿 Customer Churn Prediction</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: #3f4b3a;'>🔮 Customer Churn Prediction</h2>", unsafe_allow_html=True)
 st.markdown("""
 This application predicts customer churn using a Decision Tree Classifier, 
 based on customer profile and behavioral attributes.
@@ -47,10 +43,8 @@ based on customer profile and behavioral attributes.
 st.markdown("---")
 st.markdown("### Customer Profile")
 
-# Create two columns
 col1, col2 = st.columns(2)
 
-# Input form
 with st.form(key='customer_form'):
     with col1:
         Tenure = st.number_input('Tenure (Years)', min_value=0, max_value=20, value=2)
@@ -68,7 +62,6 @@ with st.form(key='customer_form'):
 
     submit_button = st.form_submit_button(label='Predict')
 
-# Prediction
 if submit_button:
     customer_data = pd.DataFrame([{
         'Tenure': Tenure,
